@@ -1,4 +1,4 @@
-﻿
+
 import React, { Component } from 'react';
 import {
     AppRegistry,
@@ -7,17 +7,19 @@ import {
     View
 } from 'react-native';
 
-class demoView extends Component {
+
+let shopView = React.createClass({
     render() {
         return (
             <View style={styles.container}>
                 <Text>
-                    这是 react-native demo!
+                    这是--shop
                 </Text>
             </View>
         );
     }
-}
+});
+
 
 const styles = StyleSheet.create({
     container: {
@@ -28,6 +30,11 @@ const styles = StyleSheet.create({
     },
 
 });
-// baseDemo2 改为自己的项目名称
-AppRegistry.registerComponent('baseDemo2', () => demoView);
+
+// 输出组件
+// module.exports = mainView;
+
+export {
+    shopView as ShopView
+};
 
