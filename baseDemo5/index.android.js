@@ -12,7 +12,7 @@ import {
 // import { MainView } from './Component/Main/XMGMain';
 import { LaunchView } from './Component/Main/XMGLaunchImage';
 
-export default class demoView extends Component {
+class demoView extends Component {
     render() {
         return (
             <Navigator

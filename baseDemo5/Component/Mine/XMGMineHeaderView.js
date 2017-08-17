@@ -6,7 +6,8 @@ import {
     Text,
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Platform
 } from 'react-native';
 
 const Dimensions = require('Dimensions');
@@ -96,7 +97,7 @@ let mineHeaderView = React.createClass({
 const styles = StyleSheet.create({
 
     container: {
-        height: 200,
+        height: Platform.OS === 'ios'? 400: 200,
 
         backgroundColor: 'rgba(255, 96, 0, 1.0)',
     },
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     //  ===== 顶部 上边样式 ======
     topViewStyle: {
         flexDirection: 'row',
-        marginTop: 80,
+        marginTop: Platform.OS === 'ios'? 280: 80,
         alignItems: 'center',
         justifyContent: 'space-around'
     },

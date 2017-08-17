@@ -20,7 +20,10 @@ let mineView = React.createClass({
             <View style={styles.container}>
                 <ScrollView
                     style={styles.scrollViewStyle}
+                    contentInset={{top: -200}}
+                    contentOffset={{y: 200}}
                 >
+                    {/* 头部 view */}
                     <MineHeaderView />
 
                     <View >
@@ -35,46 +38,47 @@ let mineView = React.createClass({
                     </View>
 
                     <View style={{marginTop: 20}}>
-                    <MyCellView
-                        leftIconName={"draft"}
-                        leftTitle="小码哥钱包"
-                        rightTitle="帐户余额:￥100"
+                        <MyCellView
+                            leftIconName={"draft"}
+                            leftTitle="小码哥钱包"
+                            rightTitle="帐户余额:￥100"
 
-                    />
+                        />
 
-                    <MyCellView
-                        leftIconName={"like"}
-                        leftTitle="抵用券"
-                        rightTitle="10 "
+                        <MyCellView
+                            leftIconName={"like"}
+                            leftTitle="抵用券"
+                            rightTitle="10 "
 
-                    />
+                        />
                 </View>
 
-                <View style={{marginTop: 20}}>
-                    <MyCellView
-                        leftIconName={"card"}
-                        leftTitle="积分商城"
-                    />
-                </View>
+                    <View style={{marginTop: 20}}>
+                        <MyCellView
+                            leftIconName={"card"}
+                            leftTitle="积分商城"
+                        />
+                    </View>
 
 
-                <View style={{marginTop: 20}}>
-                    <MyCellView
-                        leftIconName={"new_friend"}
-                        leftTitle="今日推荐"
-                        rightIconName="me_new"
-                    />
-                </View>
+                    <View style={{marginTop: 20}}>
+                        <MyCellView
+                            leftIconName={"new_friend"}
+                            leftTitle="今日推荐"
+                            rightIconName="me_new"
+                        />
+                    </View>
 
-                <View style={{marginTop: 20}}>
-                    <MyCellView
-                        leftIconName={"pay"}
-                        leftTitle="我要合作"
-                        rightTitle="轻松开店，招财进宝"
-                    />
-                </View>
+                    <View style={{marginTop: 20}}>
+                        <MyCellView
+                            leftIconName={"pay"}
+                            leftTitle="我要合作"
+                            rightTitle="轻松开店，招财进宝"
+                        />
+                    </View>
 
                 </ScrollView>
+
             </View>
         );
     }

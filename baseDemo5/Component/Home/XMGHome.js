@@ -8,12 +8,20 @@ import {
     TextInput,
     Image,
     TouchableOpacity,
-    Platform
+    Platform,
+    ScrollView
 } from 'react-native';
 
+// 导入外部系统模块，计算系统值
 const Dimensions = require('Dimensions');
 const {width, height} = Dimensions.get('window');
 
+// 导入外部 自己的组件
+import { TopView } from './XMGTopView'
+import { MiddleView } from './XMGMiddleView'
+import { MiddleBottomView } from './XMGMiddleBottomView';
+import { ShopCenterView } from './XMGShopCenter';
+import { ShopCenterDetailView } from './XMGShopCenterDetailView'
 
 let homeView = React.createClass({
     render() {
@@ -22,9 +30,25 @@ let homeView = React.createClass({
                 {/* 首页导航 */}
                 {this.renderNavBar()}
 
-                <Text>
-                    这是--home
-                </Text>
+                {/* 首页主要内容 */}
+                <ScrollView>
+
+                    {/*  头部 view */}
+                    <TopView />
+
+                    {/* 中间的内容 */}
+                    <MiddleView />
+
+                    {/* 中间下半部分内容*/}
+                    <MiddleBottomView />
+
+                    {/*  购物中心 */}
+                    <ShopCenterView
+                        popTopHomeView={ (url) => this.pushToShopCenterDetail(url)}
+                    />
+
+                </ScrollView>
+
             </View>
         );
     },
@@ -67,9 +91,21 @@ let homeView = React.createClass({
         );
     },
 
-    // 路由跳转
-    pushToDetail(){
+    // 路由跳转 到 购物中心详情页
+    pushToShopCenterDetail(url){
+        // alert(url);
+        this.props.navigator.push({
+            component: ShopCenterDetailView,
+            passProps: {"url": this.dealWithUrl(url)}
+        });
+    },
 
+    // 处理url
+    dealWithUrl(url) {
+        return (
+            // url.substring( url.indexOf('http') )
+             url.replace('imeituan://www.meituan.com/web/?url=', "")
+        );
     }
 });
 
@@ -78,7 +114,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#e8e8e8',
     },
 
     //  顶部样式
