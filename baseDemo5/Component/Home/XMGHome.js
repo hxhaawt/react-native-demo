@@ -22,6 +22,9 @@ import { MiddleView } from './XMGMiddleView'
 import { MiddleBottomView } from './XMGMiddleBottomView';
 import { ShopCenterView } from './XMGShopCenter';
 import { ShopCenterDetailView } from './XMGShopCenterDetailView'
+import { MayYouLikeView } from './XMGMayYouLike'
+
+
 
 let homeView = React.createClass({
     render() {
@@ -46,6 +49,9 @@ let homeView = React.createClass({
                     <ShopCenterView
                         popTopHomeView={ (url) => this.pushToShopCenterDetail(url)}
                     />
+
+                    {/* 猜你喜欢 */}
+                    <MayYouLikeView />
 
                 </ScrollView>
 

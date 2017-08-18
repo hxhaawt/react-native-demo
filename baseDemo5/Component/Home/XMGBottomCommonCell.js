@@ -1,4 +1,5 @@
-// 首页中 下部分 通用 组件--如 购物中心的头部调用
+// 首页中 下部分 通用 组件
+// 如 购物中心的头部调用/ 猜你喜欢头部
 
 import React, { Component } from 'react';
 import {
